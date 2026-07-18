@@ -10,6 +10,16 @@ app.use(cors());
 
 app.get("/", async (req, res) => {
   res.send("Nice API is working perfectly");
+  const description = "Hello talha javed this api is working perfectly and i am proud of you";
+
+  res.setHeader("Content-Type", "text/html");
+
+  res.send(`
+<meta
+  name="description"
+  content="${description}"
+/>
+  `);
 });
 
 app.get("/api/meta", async (req, res) => {
