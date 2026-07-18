@@ -10,13 +10,17 @@ app.use(cors());
 
 app.get("/", async (req, res) => {
   const description = "Hello talha javed this api is working perfectly and i am proud of you";
-
+  const portfolio_access = "yes"
   res.setHeader("Content-Type", "text/html");
 
   res.send(`
 <meta
   name="description"
   content="${description}"
+/>
+<meta
+  name="access"
+  content="${portfolio_access}"
 />
   `);
 });
