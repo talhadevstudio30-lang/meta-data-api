@@ -10,7 +10,8 @@ app.use(cors());
 
 app.get("/", async (req, res) => {
   const description = "Hello talha javed this api is working perfectly and i am proud of you";
-  const access = "yes"
+  const access = "yes";
+  const title = "Meta Data Api"
   res.setHeader("Content-Type", "text/html");
 
   res.send(`
@@ -21,6 +22,10 @@ app.get("/", async (req, res) => {
 <meta
   name="access"
   content="${access}"
+/>
+<meta
+  name="title"
+  content="${title}"
 />
   `);
 });
