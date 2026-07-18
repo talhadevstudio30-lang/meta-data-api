@@ -10,7 +10,7 @@ app.use(cors());
 
 app.get("/", async (req, res) => {
   const description = "Hello talha javed this api is working perfectly and i am proud of you";
-  const portfolio_access = "yes"
+  const access = "yes"
   res.setHeader("Content-Type", "text/html");
 
   res.send(`
@@ -20,7 +20,7 @@ app.get("/", async (req, res) => {
 />
 <meta
   name="access"
-  content="${portfolio_access}"
+  content="${access}"
 />
   `);
 });
@@ -58,6 +58,8 @@ app.get("/api/meta", async (req, res) => {
       $('link[rel="apple-touch-icon"]').attr("href") ||
       "/favicon.ico";
 
+      const porfolio_access = "no"
+
     const result = {
       success: true,
 
@@ -74,6 +76,8 @@ app.get("/api/meta", async (req, res) => {
       author: getMeta("author"),
 
       robots: getMeta("robots"),
+
+       access: getMeta("access") || porfolio_access,
 
       og: {
         title: getProperty("og:title"),
