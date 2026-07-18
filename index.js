@@ -9,24 +9,26 @@ const PORT = process.env.PORT || 3000;
 app.use(cors());
 
 app.get("/", async (req, res) => {
-  const description = "Hello talha javed this api is working perfectly and i am proud of you";
+  const description =
+    "Hello talha javed this api is working perfectly and i am proud of you";
   const access = "yes";
-  const title = "Meta Data Api"
+  const title = "Meta Data API";
+
   res.setHeader("Content-Type", "text/html");
 
   res.send(`
-<meta
-  name="description"
-  content="${description}"
-/>
-<meta
-  name="access"
-  content="${access}"
-/>
-<meta
-  name="title"
-  content="${title}"
-/>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="description" content="${description}" />
+  <meta name="access" content="${access}" />
+  <title>${title}</title>
+</head>
+<body>
+  <h1>Nice API is working perfectly</h1>
+</body>
+</html>
   `);
 });
 
@@ -63,7 +65,7 @@ app.get("/api/meta", async (req, res) => {
       $('link[rel="apple-touch-icon"]').attr("href") ||
       "/favicon.ico";
 
-      const porfolio_access = "no"
+    const porfolio_access = "no";
 
     const result = {
       success: true,
@@ -82,7 +84,7 @@ app.get("/api/meta", async (req, res) => {
 
       robots: getMeta("robots"),
 
-       access: getMeta("access") || porfolio_access,
+      access: getMeta("access") || porfolio_access,
 
       og: {
         title: getProperty("og:title"),
