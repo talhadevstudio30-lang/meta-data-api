@@ -85,6 +85,11 @@ app.get("/api/meta", async (req, res) => {
       robots: getMeta("robots"),
 
       access: getMeta("access") || porfolio_access,
+      
+      technologies: getMeta("technologies")
+        .split(",")
+        .map((tech) => tech.trim())
+        .filter(Boolean),
 
       og: {
         title: getProperty("og:title"),
